@@ -72,12 +72,12 @@ Converter is a Python program that functions as a converter application, allowin
      Lookup tables for converting between denary and hexadecimal.
 
 **Libraries:**
-The code does not use any external libraries beyond the built-in Python libraries. Click on the link to download Python: Installation of python
+The code does not use any external libraries beyond the built-in Python libraries. Click on the link to download Python: [Installation of python](https://www.python.org/downloads/)
 
 **Note:**
 The usage assumes that additional functions like `dec_to_hex_lookup_table`, `hex_to_dec_lookup_table`, and `continuous_division` are implemented elsewhere in the code, as they are referenced in the conversion functions.
 
-Usage
+**Usage:**
 
 To run the code on terminal (without any GUI), execute converter.py. It will run the program.
 
@@ -85,16 +85,16 @@ To edit any parts of the program, the code are located in converter.py.
 
 You can use Python IDLE to run any of the files, or any IDE of your choice that supports Python.
 
-Support
+**Support:**
 
 You could just call 911 should you run into errors because the developer is busy with life.
 
 Just kidding, please contact me if you have any queries.
 
-Roadmap
+**Roadmap:**
 
 Even though the game is developed, there is room for improvement. Expanding the app to a web application/ mobile application or even to improve space and time complexities of the algorithms used are explorable possibilities.
 
-Project Status
+**Project Status:**
 
 Currently, the project is completed.
