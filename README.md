@@ -97,4 +97,4 @@ Even though the game is developed, there is room for improvement. Expanding the 
 
 **Project Status:**
 
-Currently, the project is completed.
+Currently, I am working on a GUI for the app.
