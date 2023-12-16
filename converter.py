@@ -361,12 +361,14 @@ def octal_to_denary(user_input):
     return total
         
 ### Octal to Hexadecimal ###
+# TODO: Fix this function
 def octal_to_hexadecimal(user_input):
     octal_to_binary_output = octal_to_binary(user_input)
     binary_to_hexadecimal_output = binary_to_hexadecimal(octal_to_binary_output)
     return binary_to_hexadecimal_output   
 
 ### Hexadecimal to Octal ###
+# TODO: Fix this function
 def hexadecimal_to_octal(user_input):
     hexadecimal_to_binary_output = hexadecimal_to_binary(user_input)
     binary_to_octal_output = binary_to_octal(hexadecimal_to_binary_output)
