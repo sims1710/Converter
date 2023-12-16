@@ -361,18 +361,48 @@ def octal_to_denary(user_input):
     return total
         
 ### Octal to Hexadecimal ###
-# TODO: Fix this function
 def octal_to_hexadecimal(user_input):
-    octal_to_binary_output = octal_to_binary(user_input)
-    binary_to_hexadecimal_output = binary_to_hexadecimal(octal_to_binary_output)
-    return binary_to_hexadecimal_output   
+    octal_input_array, array_size = convert_to_array_and_array_size(user_input)
+    total = 0
+    hex_output_array = []
 
+    # Flip the array
+    octal_input_array.reverse()
+
+    for i in range(0, array_size):
+        digit = int(octal_input_array[i])
+        total += digit * 8**i
+        
+    hex_output_array = continuous_division(total, 16)
+    
+    # Correct hex_output_array to represent hexadecimal digits
+    for i in range(len(hex_output_array)):
+        hex_output_array[i] = dec_to_hex_lookup_table(int(hex_output_array[i]))
+        
+    hex_output_array.reverse()
+    hex_output = convert_to_type(hex_output_array, "str")
+    
+    return hex_output
+    
 ### Hexadecimal to Octal ###
-# TODO: Fix this function
 def hexadecimal_to_octal(user_input):
-    hexadecimal_to_binary_output = hexadecimal_to_binary(user_input)
-    binary_to_octal_output = binary_to_octal(hexadecimal_to_binary_output)
-    return binary_to_octal_output
+    hex_input_array, array_size = convert_to_array_and_array_size(user_input)
+    total = 0
+    octal_output_array = []
+
+    # Flip the array
+    hex_input_array.reverse()
+
+    for i in range(0, array_size):
+        character = hex_input_array[i]
+        number = hex_to_dec_lookup_table(character)
+        total += number * 16**i
+        
+    octal_output_array = continuous_division(total, 8)
+    octal_output_array.reverse()
+    octal_output = convert_to_type(octal_output_array, "str")
+    
+    return octal_output
 
 ### Main module ###
 if __name__ == "__main__":
