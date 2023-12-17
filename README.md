@@ -72,8 +72,8 @@ Converter is a Python program that functions as a converter application, allowin
 The usage assumes that additional functions like `dec_to_hex_lookup_table`, `hex_to_dec_lookup_table`, and `continuous_division` are implemented elsewhere in the code, as they are referenced in the conversion functions.
 
 **Usage:**
-
-To help you better, I'll need more information about the specific `converter.py` script you're referring to. In general, running a Python script involves using the Python interpreter in your terminal or command prompt. Here are the general steps:
+ 
+Here are the general steps:
 
 1. **Install Python:**
    Make sure you have Python installed on your system. You can download it from the official [Python website](https://www.python.org/downloads/). Follow the installation instructions for your operating system.
