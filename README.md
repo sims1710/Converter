@@ -59,9 +59,6 @@ Converter is a Python program that functions as a converter application, allowin
    - **`convert_to_type`:**
      Converts user input to a specified data type (int or str).
 
-   - **`multiply_by_position`:**
-     Multiplies each digit by its positional notation.
-
    - **`continuous_division`:**
      Performs continuous division of a number by a specified conversion type.
 
@@ -97,4 +94,36 @@ Even though the game is developed, there is room for improvement. Expanding the 
 
 **Project Status:**
 
-Currently, I am working on a GUI for the app.
+Currently, the application is complete!
+
+**How to use it with the GUI**
+To run `converter_gui.py`, you can follow these steps:
+
+1. **Ensure Python is Installed:**
+   Make sure you have Python installed on your system. If not, you can download and install it from the official [Python website](https://www.python.org/downloads/).
+
+2. **Download or Create Necessary Files:**
+   Ensure that you have the following files in the same directory:
+   - `converter_gui.py`: The main script containing the GUI code.
+   - `converter.py`: The module containing conversion functions.
+
+3. **Open a Terminal or Command Prompt:**
+   Open a terminal or command prompt in the directory where the `converter_gui.py` file is located.
+
+4. **Run the Script:**
+   Type the following command and press Enter to run the script:
+
+   ```bash
+   python converter_gui.py
+   ```
+
+   If you are using Python 3, you might need to use `python3` instead:
+
+   ```bash
+   python3 converter_gui.py
+   ```
+
+5. **GUI Application:**
+   After running the command, the GUI application should open. You'll see the main window with conversion options. You can interact with the GUI to perform various conversions.
+
+Please note that the instructions assume that your system's PATH variable includes the path to the Python interpreter. If you encounter any issues, ensure that Python is correctly installed and that the `python` command is recognized in your terminal or command prompt.
