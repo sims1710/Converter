@@ -138,16 +138,6 @@ def convert_to_type(user_input, output_type):
         data = ''.join(map(str, user_input))
     return data
 
-# Multiply the digit by its positional notation
-def multiply_by_position(conversion_type, array_size, input_array):
-    total = 0
-    for i in range(0, array_size):
-        if input_array[i] == '1':
-            total += conversion_type**i
-        else:
-            total += 0
-    return total
-
 # Continuous division
 def continuous_division(number, conversion_type):
     output_array = []
@@ -155,15 +145,6 @@ def continuous_division(number, conversion_type):
         remainder = number % conversion_type
         number = number // conversion_type
         output_array.append(remainder)
-    return output_array
-    
-# Zero padding
-def zero_padding(array_size, conversion_type):
-    output_array = []
-    if array_size % conversion_type != 0:
-        while array_size % conversion_type != 0:
-            output_array.insert(0, 0)
-            array_size += 1    
     return output_array
 
 # Conversion table for denary to hexadecimal
@@ -210,9 +191,12 @@ def binary_to_denary(user_input):
 
     # Flip the array
     binary_input_array.reverse()
-        
-    denary_output = multiply_by_position(2, array_size, binary_input_array)
-    
+    denary_output = 0
+    for i in range(0, array_size):
+        if binary_input_array[i] == '1':
+            denary_output += 2**i
+        else:
+            denary_output += 0
     return denary_output
 
 ### Denary to Binary ###
@@ -232,23 +216,20 @@ def binary_to_hexadecimal(user_input):
     binary_input_array, array_size = convert_to_array_and_array_size(user_input)
     total = 0
     hex_output = ""
+    hex_output_array = []
 
     # Make the array a multiple of 4
-    hex_output_array = zero_padding(array_size, 4)
+    binary_input_array = zero_padding(binary_input_array, array_size, 4)
 
     # Divide into 4 bits arrays
     for i in range(0, array_size, 4):
         nibble = binary_input_array[i:i+4]
         nibble.reverse()
-        nibble_size = len(nibble)
-        for j in range(0, nibble_size):
-            if nibble[j] == '1':
-                total += 2**j
-            else:
-                total += 0
+        total = sum(int(bit) * 2**j for j, bit in enumerate(nibble))
         character = dec_to_hex_lookup_table(total)          
         hex_output_array.append(character)    
-        hex_output = convert_to_type(hex_output_array, "str")
+    
+    hex_output = convert_to_type(hex_output_array, "str")
         
     return hex_output
     
@@ -283,8 +264,7 @@ def binary_to_octal(user_input):
     for i in range(0, array_size, 3):
         tribble = binary_input_array[i:i+3]
         tribble.reverse()
-        tribble_size = len(tribble)     
-        octal_output = multiply_by_position(tribble_size, 2, tribble)
+        octal_output = sum(int(bit) * 2**j for j, bit in enumerate(tribble))
         octal_output_array.append(octal_output)
         
     octal_output_to_user = convert_to_type(octal_output_array, "str")
@@ -293,13 +273,12 @@ def binary_to_octal(user_input):
 
 ### Octal to Binary ###
 def octal_to_binary(user_input):
-    octal_input_array, array_size = convert_to_array_and_array_size(user_input)
     binary_output_array = []
-    total = multiply_by_position(8, array_size, octal_input_array)          
-    binary_output_array = continuous_division(total, 2)    
-    binary_output_array.reverse()
-    binary_output = convert_to_type(binary_output_array, "str")
     
+    for octal_digit in user_input:
+        binary_output_array.append(bin(int(octal_digit, 8))[2:].zfill(3))
+
+    binary_output = ''.join(binary_output_array)
     return binary_output
 
 ### Denary to Hexadecimal ###
@@ -312,9 +291,11 @@ def denary_to_hexadecimal(user_input):
         hex_character = dec_to_hex_lookup_table(denary_input)
         hex_output_array.append(hex_character)
     else:
-        remainder = denary_input % 16
-        quotient = denary_input // 16
-        hex_output_array = [quotient, remainder]
+        while denary_input > 0:
+            remainder = denary_input % 16
+            hex_character = dec_to_hex_lookup_table(remainder)
+            hex_output_array.insert(0, hex_character)
+            denary_input //= 16
         
     hex_output = convert_to_type(hex_output_array, "str") 
     return hex_output
@@ -403,7 +384,7 @@ def hexadecimal_to_octal(user_input):
     octal_output = convert_to_type(octal_output_array, "str")
     
     return octal_output
-
+    
 ### Main module ###
 if __name__ == "__main__":
     print("Welcome to the Converter Application!")
