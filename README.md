@@ -97,6 +97,7 @@ Even though the game is developed, there is room for improvement. Expanding the 
 Currently, the application is complete!
 
 **How to use it with the GUI**
+
 To run `converter_gui.py`, you can follow these steps:
 
 1. **Ensure Python is Installed:**
