@@ -110,7 +110,7 @@ Here are the general steps:
 5. **Follow any Instructions:**
    The script may have prompts or require certain inputs. Follow any on-screen instructions or provide any necessary information.
 
-Keep in mind that the specific steps may vary depending on the script's requirements, your operating system, and the version of Python you have installed. If there are specific instructions or documentation provided with the `converter.py` script, be sure to review that information.
+Keep in mind that the specific steps may vary depending on the script's requirements, your operating system, and the version of Python you have installed.
 
 **How to use it with the GUI:**
 
