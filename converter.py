@@ -147,6 +147,14 @@ def continuous_division(number, conversion_type):
         output_array.append(remainder)
     return output_array
 
+# Zero padding
+def zero_padding(input_array, array_size, conversion_type):
+    if array_size % conversion_type != 0:
+        while array_size % conversion_type != 0:
+            input_array.insert(0, 0)
+            array_size += 1    
+    return input_array
+
 # Conversion table for denary to hexadecimal
 def dec_to_hex_lookup_table(number):
     if number == 10:
